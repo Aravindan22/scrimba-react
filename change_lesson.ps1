@@ -1,9 +1,9 @@
 <#
 .SYNOPSIS
-Replaces the current src folder with lesson templates from the templates-scrimba folder.
+Replaces the current src folder with lesson templates and restarts npm run dev.
 
 .DESCRIPTION
-This script backs up the existing src folder and replaces it with the specified lesson template.
+This script kills any running `npm run dev` process, backs up the existing src folder, replaces it with the specified lesson template, and restarts the dev server.
 
 .PARAMETER LessonName
 The name of the lesson folder in templates-scrimba to use as the replacement.
@@ -39,4 +39,11 @@ if (Test-Path -Path $SrcDir -PathType Container) {
 Write-Host "Copying template files from $TemplatesDir to $SrcDir" -ForegroundColor Green
 Copy-Item -Path $TemplatesDir -Destination $SrcDir -Recurse
 
-Write-Host "Successfully replaced src folder with $LessonName template" -ForegroundColor Green
+# Start npm run dev INSIDE src folder
+Write-Host "Starting npm run dev inside $SrcDir..." -ForegroundColor Green
+$NpmProcess = Start-Process -PassThru -NoNewWindow -WorkingDirectory $SrcDir -FilePath "npm" -ArgumentList "run", "dev"
+Write-Host "Dev server running in $SrcDir (PID: $($NpmProcess.Id))" -ForegroundColor Cyan
+
+Write-Host "`nSuccessfully:" -ForegroundColor Green
+Write-Host "- Replaced src with $LessonName template" -ForegroundColor White
+Write-Host "- Running dev server inside src/" -ForegroundColor White
