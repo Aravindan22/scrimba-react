@@ -1,58 +1,59 @@
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  /* padding: 20px; */
-  font-family: Arial, Helvetica, sans-serif;
-  background: #282d35;
-  color: white;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    background-color: whitesmoke;
 }
 
-h1 {
-  margin-top: 30px;
+.contacts {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
 }
 
-.header {
-  display: flex;
-  background: #21222a;
+.contact-card {
+    flex-basis: 225px;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 13px;
+    padding-bottom: 20px;
+    background-color: white;
 }
 
-.nav-list {
-  list-style: none;
-  display: flex;
+.contact-card > img {
+    width: 100%;
+    height: auto;
+    align-self: center;
+    border-radius: 5px;
+    object-fit: cover;
 }
 
-.nav-list-item {
-  margin-left: 10px;
-  font-size: 1.1rem;
+.contact-card > h3 {
+    font-weight: 700;
+    font-size: 18px;
 }
 
-.nav-logo {
-  width: 40px;
-  margin: 10px;
+.info-group {
+    display: flex;
+    align-items: center;
 }
 
-topic-header {
-  font-family: Inter;
-  font-weight: 700;
-  font-size: 39.06px;
-  line-height: 100%;
-  letter-spacing: -5%;
+.info-group > img {
+    height: 11px;
+    margin-right: 8px;
 }
 
-ul > li {
-  font-family: Inter;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 100%;
-  letter-spacing: 0%;
-}
-
-li::marker {
-  color: #61dafb;
-}
-
-react-logo-background {
-  background-image: url("src/assests/reactjs.icon.png");
+.info-group > p {
+    margin-block: 3px;
+    font-size: 12px;
+    color: #2B283A;
 }
