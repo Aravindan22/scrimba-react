@@ -39,15 +39,15 @@ fi
 echo "Copying template files from $TEMPLATES_DIR to $SRC_DIR"
 cp -r "$TEMPLATES_DIR" "$SRC_DIR"
 
-# Restart npm run dev inside src folder
-echo "Restarting npm run dev in $SRC_DIR..."
-(
-    cd "$SRC_DIR" || exit
-    npm run dev > /dev/null 2>&1 &
-    NPM_PID=$!
-    echo "npm run dev running in $SRC_DIR (PID: $NPM_PID)"
-)
+# # Restart npm run dev inside src folder
+# echo "Restarting npm run dev in $SRC_DIR..."
+# (
+#     cd "$SRC_DIR" || exit
+#     npm run dev > /dev/null 2>&1 &
+#     NPM_PID=$!
+#     echo "npm run dev running in $SRC_DIR (PID: $NPM_PID)"
+# )
 
 echo "Successfully:"
 echo "- Replaced src folder with $LESSON_NAME template"
-echo "- Restarted dev server inside $SRC_DIR"
+# echo "- Restarted dev server inside $SRC_DIR"
